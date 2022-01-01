@@ -1,8 +1,6 @@
 # RegEx for Humans.
 
-
-    “I had a problem, and I decided to solve it with RegEx.
-    Now I have two problems.”
+> “I had a problem, so I decided to solve it using RegEx. Now I have two problems.”
 
 Regular Expressions are notoriously unreadable, unwritable, and unmaintainble -
 even when they are just one line long.

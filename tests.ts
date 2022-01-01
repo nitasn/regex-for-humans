@@ -23,7 +23,7 @@ import {
 ///          Find all Phone Numbers in a Long Text         (Test #1)        ///
 ///////////////////////////////////////////////////////////////////////////////
 
-console.log("Find all Phone Numbers in a Long Text  (Test #1)");
+console.log("Finding all Phone Numbers in a Long Text");
 
 const long_text = `
   my phone number is 054-9876543.
@@ -33,7 +33,10 @@ const long_text = `
 `;
 
 const phonePattern = regexInLongerText(
-  anyOf(sequenceOf(3, DIGIT), ["(", sequenceOf(3, DIGIT), ")"]),
+  anyOf(
+    sequenceOf(3, DIGIT),
+    ["(", sequenceOf(3, DIGIT), ")"]
+  ),
   optional(anyOf(" ", "-")),
   sequenceOf(4, DIGIT),
   optional(anyOf(" ", "-")),
@@ -41,10 +44,12 @@ const phonePattern = regexInLongerText(
 );
 
 console.log("final regex:", phonePattern);
+
 console.log('searching in this text: "', long_text, '"');
 long_text.match(phonePattern)?.forEach((number) => {
   console.log("👉", number);
 });
+
 console.log();
 
 ///////////////////////////////////////////////////////////////////////////////

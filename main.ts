@@ -4,6 +4,11 @@ type Char = string; // ts doesn't have fixed-length strings...
 
 // todo lookaheads/behinds...
 
+
+// todo in readme:
+// make code prettier by screenshoting it
+
+
 /**
  * a wrapper over regular string,
  * to indicate that the content is already special-chars-escaped.
@@ -90,7 +95,7 @@ type Reps =
 
 function toQuantifier(reps: Reps) {
   switch (reps) {
-    case "at-least-one":
+    case "at-least-one": // todo maybe only "1+"
       return "+";
     case "zero-or-more":
       return "*";
