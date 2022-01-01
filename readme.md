@@ -1,80 +1,33 @@
 # RegEx for Humans.
 
-> “I had a problem, so I decided to solve it using RegEx. Now I have two problems.”
+> “I had a problem, and I decided to solve it using RegEx.  
+> Now, I have two problems.”
 
-Regular Expressions are notoriously unreadable, unwritable, and unmaintainble -
-even when they are just one line long.
+Regular Expressions are notoriously hard to read, write, or maintain.
 
-RegEx for Humans is a more readable and maintainble way to write RegEx's.
+    Exhibit A - 1st result on google for "email regex":
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    const phonePattern = regexInLongerText(
-      anyOf(
-        sequenceOf(3, DIGIT), 
-        ["(", sequenceOf(3, DIGIT), ")"]
-      ),
-      optional(anyOf(" ", "-")),
-      sequenceOf(4, DIGIT),
-      optional(anyOf(" ", "-")),
-      sequenceOf(3, DIGIT)
-    );
-Now `phonePattern` now is `/(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g`,
-i.e. it's a normal JS RegExp object:
+The 2 major problems of RegEx are:
+1. Whitespaces are not ignored;  
+   Experssions can't be split into lines, or indented.
+2. It uses weird symbols for control;
+   would you rather read `(?<=Y)X` or "X that comes after Y"?
 
-    const some_long_text = `
-      my phone number is 054-9876543.
-      my friend's phone number's 054 1234-567;
-      she is 23 years old.
-      also check out (054) 5831 325 it's great!
-    `;
-    
-    some_long_text.match(phonePattern)?.forEach((number) => {
-      console.log("👉", number);
-    });
-    
-This outputs:
+**RegEx for Humans** is a readable and maintainble **way to write RegEx's**.  
 
-    👉 054-9876543
-    👉 054 1234-567
-    👉 (054) 5831 325
+It's a tiny JS library with functions that return normal JS Regular Expression objects.  
 
-Another example:
+![exmaple-1: find phone numbers in a long text](https://github.com/nitasn/regex-for-humans/blob/master/example-1.png?raw=1)
 
-    const emailValidaror = regexWholeText(
-      sequenceOf("at-least-one", LETTER_OR_DIGIT),
-      sequenceOf("zero-or-more", 
-        ".", 
-        sequenceOf("at-least-one", LETTER_OR_DIGIT)
-      ),
-      "@",
-      sequenceOf("at-least-one", LETTER_OR_DIGIT),
-      sequenceOf("at-least-one", 
-        ".", 
-        sequenceOf("at-least-one", LETTER_OR_DIGIT)
-      )
-    );
-    
-    const addressToTest = [
-      "hello@gmail.com",
-      "meow.com",
-      "hello@co.il",
-      "hello@com",
-      "david.ben.tov@whatever999.com",
-    ];
-    
-    for (const addr of addressToTest) {
-      const isOkay = emailValidaror.test(addr);
-      console.log(isOkay ? "✅" : "❌", addr);
-    }
+    `phonePattern` now holds this normal JS RegExp Object:  
+    /(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g
 
-Outputs:
+![output of exmaple-1](https://github.com/nitasn/regex-for-humans/blob/master/exmple-1-output.png?raw=1)
 
-    ✅ hello@gmail.com
-    ❌ meow.com
-    ✅ hello@co.il
-    ❌ hello@com
-    ✅ david.ben.tov@whatever999.com
-
+*RegEx for Humans* is built entirely in TS, and weighs ~2KB when minified.
 
 ***
 
-Note: this library is currently in alpha.
+Note: this library is currently in early alpha.  
+This article will contain more examples of using *RegEx for Humans*, as the library grows.

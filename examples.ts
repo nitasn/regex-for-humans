@@ -23,7 +23,7 @@ import {
 ///          Find all Phone Numbers in a Long Text         (Test #1)        ///
 ///////////////////////////////////////////////////////////////////////////////
 
-console.log("Finding all Phone Numbers in a Long Text");
+console.log("Find all Phone Numbers in a Long Text");
 
 const longText = `
   my phone number is 054-9876543.
@@ -47,8 +47,7 @@ longText.match(phonePattern)?.forEach((number) => {
   console.log("👉", number);
 });
 
-console.log("final regex:", phonePattern);
-console.log();
+console.log("regex used:", phonePattern, '\n');
 
 ///////////////////////////////////////////////////////////////////////////////
 ///          Validate Email Addresses from a User          (Test #2)        ///
@@ -58,10 +57,16 @@ console.log("Validate Email Addresses from a User  (Test #2) ");
 
 const emailValidaror = regexWholeText(
   sequenceOf("at-least-one", LETTER_OR_DIGIT),
-  sequenceOf("zero-or-more", ".", sequenceOf("at-least-one", LETTER_OR_DIGIT)),
+  sequenceOf("zero-or-more",
+    ".",
+    sequenceOf("at-least-one", LETTER_OR_DIGIT)
+  ),
   "@",
   sequenceOf("at-least-one", LETTER_OR_DIGIT),
-  sequenceOf("at-least-one", ".", sequenceOf("at-least-one", LETTER_OR_DIGIT))
+  sequenceOf("at-least-one",
+    ".",
+    sequenceOf("at-least-one", LETTER_OR_DIGIT)
+  )
 );
 
 const addressToTest = [
@@ -72,9 +77,9 @@ const addressToTest = [
   "david.ben.tov@whatever999.com",
 ];
 
-console.log("final regex:", emailValidaror);
-
 for (const addr of addressToTest) {
   const isOkay = emailValidaror.test(addr);
   console.log(isOkay ? "✅" : "❌", addr);
 }
+console.log("regex used:", emailValidaror, '\n');
+
