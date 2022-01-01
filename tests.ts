@@ -25,7 +25,7 @@ import {
 
 console.log("Finding all Phone Numbers in a Long Text");
 
-const long_text = `
+const longText = `
   my phone number is 054-9876543.
   my friend's phone number's 054 1234-567;
   she is 23 years old.
@@ -43,13 +43,11 @@ const phonePattern = regexInLongerText(
   sequenceOf(3, DIGIT)
 );
 
-console.log("final regex:", phonePattern);
-
-console.log('searching in this text: "', long_text, '"');
-long_text.match(phonePattern)?.forEach((number) => {
+longText.match(phonePattern)?.forEach((number) => {
   console.log("👉", number);
 });
 
+console.log("final regex:", phonePattern);
 console.log();
 
 ///////////////////////////////////////////////////////////////////////////////
