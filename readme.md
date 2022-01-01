@@ -1,6 +1,6 @@
-## RegEx for Humans.
+# RegEx for Humans.
 
-# A readable and maintainble way to write RegEx's.  
+## A readable and maintainble way to write RegEx's.  
 
 
    “I had a problem, and I decided to solve it using RegEx.  
@@ -8,7 +8,7 @@
 
 Regular Expressions are notoriously hard to read, write, or maintain.
 
-> Exhibit A: 1st result on google for "email regex":
+> Exhibit A: first result on google for "email regex":
 >
 > `/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/`
 
