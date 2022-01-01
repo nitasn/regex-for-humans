@@ -1,12 +1,9 @@
 type Char = string; // ts doesn't have fixed-length strings...
 
-// sequenceOf(3, DIGIT) // todo make "3-4" works
+
+// sequenceOf(3, DIGIT) // todo make "3-4" and "3+" work
 
 // todo lookaheads/behinds...
-
-
-// todo in readme:
-// make code prettier by screenshoting it
 
 
 /**
@@ -19,7 +16,7 @@ class RegexSnippet {
   private constructor(readonly content: string) {}
 
   static specialChars = new Set<string>(
-    ". ^ $ * + - ? ( ) [ ] { } \\ | — / = ! < >".match(/\S+?/g)
+    ". ^ $ * + - ? ( ) [ ] { } \\ | / = ! < >".match(/\S+?/g)
   );
 
   public static wrap(chars: string) {
