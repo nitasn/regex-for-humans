@@ -23,8 +23,8 @@ The 2 major problems of RegEx are:
 ![exmaple-1: find phone numbers in a long text](https://github.com/nitasn/regex-for-humans/blob/master/example-1.png?raw=1)
 
    
-> The library returns normal JS RegExp objects, so `phonePattern` now holds  
-> `/(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g`
+> The library returns normal JS RegExp objects, so
+> `phonePattern` now holds `/(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g`
 
 ![output of exmaple-1](https://github.com/nitasn/regex-for-humans/blob/master/exmple-1-output.png?raw=1)
 
