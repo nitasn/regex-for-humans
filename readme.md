@@ -1,7 +1,7 @@
 # RegEx for Humans.
 
-> “I had a problem, and I decided to solve it using RegEx.  
-> Now, I have two problems.”
+   “I had a problem, and I decided to solve it using RegEx.  
+    Now, I have two problems.”
 
 Regular Expressions are notoriously hard to read, write, or maintain.
 
@@ -21,8 +21,8 @@ It's a tiny JS library with functions that return normal JS Regular Expression o
 
 ![exmaple-1: find phone numbers in a long text](https://github.com/nitasn/regex-for-humans/blob/master/example-1.png?raw=1)
 
-    `phonePattern` now holds this JS RegExp Object:  
-    /(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g
+`phonePattern` now holds this JS RegExp Object:  
+`/(\d{3}|\(\d{3}\))( |\-)?\d{4}( |\-)?\d{3}/g`
 
 ![output of exmaple-1](https://github.com/nitasn/regex-for-humans/blob/master/exmple-1-output.png?raw=1)
 
